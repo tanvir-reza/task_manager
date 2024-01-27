@@ -9,6 +9,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from .forms import TaskForm
+from django.db.models import Q
 
 # Create your views here.
 class HomeView(ListView):
@@ -40,7 +41,7 @@ class TaskCreateView(LoginRequiredMixin,View):
           due_date = request.POST.get('due_date')
           task = Task.objects.create(title=title,description=description,images=image,due_date=due_date,priority=priority,user=user)
           task.save()
-          return redirect('/')
+          return redirect('dashboard')
 
 
 class TaskUpdateView(LoginRequiredMixin,View):
@@ -68,6 +69,51 @@ class TaskDetailView(LoginRequiredMixin,View):
           task = Task.objects.get(id=pk)
           return render(request,'task-details.html',{'task':task})
      
+class TaskSearchView(LoginRequiredMixin,View):
+     login_url = 'login'
+     def get(self,request):
+          title = request.GET.get('title', '')
+          creation_date = request.GET.get('creation_date', '')
+          due_date = request.GET.get('due_date', '')
+          priority = request.GET.get('priority', '')
+          complete = request.GET.get('completed', '')
+
+
+          search_query = Q()
+
+          if title:
+               print(title)
+               search_query &= Q(title__icontains=title)
+
+          if creation_date:
+               search_query &= Q(created__icontains=creation_date)
+
+          if due_date:
+               search_query &= Q(due_date__icontains=due_date)
+
+          if priority:
+               search_query &= Q(priority__icontains=priority)
+
+          if complete:
+               search_query &= Q(complete=complete)
+
+          
+
+          tasks = Task.objects.filter(search_query & Q(user=request.user)).order_by('-created')
+
+          context = {
+               'title':title,
+               'creation_date':creation_date,
+               'due_date':due_date,
+               'priority':priority,
+               'complete':complete,
+               'tasks':tasks
+          }
+          return render(request,'search.html',context=context)
+     
+          
+     
+
 class TaskDeleteView(LoginRequiredMixin,View):
      login_url = 'login'
      def get(self,request,pk):
@@ -136,3 +182,5 @@ class LogoutView(View):
      def get(self,request):
           auth.logout(request)
           return redirect('/')
+     
+

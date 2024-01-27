@@ -1,9 +1,9 @@
 {% extends "base.html" %}
-
 {% block body %}
     <div class='container'>
-        <div class=''>
-            <h1 class='text-center'>Task List</h1>
+        {% if tasks %}
+            <div class=''>
+            <h1 class='text-center '>Task List</h1>
            <table class="table border border-info table-bordered text-center">
                 <thead>
                     <tr>
@@ -11,6 +11,7 @@
                     <th scope="col">Description</th>
                     <th scope="col">Deu Date</th>
                     <th scope="col">Priority</th>
+                    <th scope="col">Complete</th>
                     <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -21,6 +22,7 @@
                     <td>{{task.description|truncatewords:30}}</td>
                     <td>{{task.due_date}}</td>
                     <td>{{task.priority}}</td>
+                    <td>{{task.complete}}</td>
                     <td>
                         <a href="{% url "details" task.id %}" class="btn btn-primary">Details</a>
                         <a href="{% url "delete" task.id %}" class="btn btn-danger">Delete</a>
@@ -29,6 +31,9 @@
                     {% endfor %}
                 </tbody>
                 </table> 
-        </div>
+        </div> 
+        {% else %}
+            <h1 class='text-center mt-5 text-danger'>No Task Available</h1>
+        {% endif %}
     </div>
 {% endblock body %}

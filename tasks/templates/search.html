@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="mt-5 mb-5">
+                    <form method="get" action="{% url 'search' %}">
+                        <div class="input-group mb-3">
+                            <input class="form-control p-2 m-1" type="text" name="title" placeholder="Search by title" value="{{title}}">
+                            <input class="form-control p-2 m-1" type="date" name="creation_date" placeholder="Creation date" value="{{creation_date}}">
+                            <input class="form-control p-2 m-1" type="date" name="due_date" placeholder="" value="{{due_date}}">
+                            <select class="form-select p-2 m-1" name="priority">
+                                <option value="" {% if priority == '' %}selected{% endif %}>All</option>
+                                <option value="Low" {% if priority == 'Low' %}selected{% endif %}>Low</option>
+                                <option value="Medium" {% if priority == 'Medium' %}selected{% endif %}>Medium</option>
+                                <option value="High" {% if priority == 'High' %}selected{% endif %}>High</option>
+                            </select>
+                            <select class="form-select p-2 m-1" name="completed"> 
+                                <option value="" {% if completed == '' %}selected{% endif %}>All</option>
+                                <option value="True" {% if complete == 'True' %}selected{% endif %}>Completed</option>
+                                <option value="False" {% if complete == 'False' %}selected{% endif %}>Not Completed</option>
+                            </select>
+                        <button class="btn btn-warning p-2 m-1" type="submit">Filter</button>
+
+                        </div>
+                        
+                    </form>
+                </div>
+
+                {% if tasks %}
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Creation Date</th>
+                            <th scope="col">Due Date</th>
+                            <th scope="col">Priority</th>
+                            <th scope="col">Completed</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for task in tasks %}
+                        <tr>
+                            <td>{{ task.title }}</td>
+                            <td>{{ task.created|date }}</td>
+                            <td>{{ task.due_date }}</td>
+                            <td>{{ task.priority }}</td>
+                            <td>{{ task.complete }}</td>
+                            <td>
+                                <a href="{% url 'details' task.id %}" class="btn btn-primary">Details</a>
+                                <a href="{% url 'update' task.id %}" class="btn btn-primary">Edit</a>
+                                <a href="{% url 'delete' task.id %}" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <h1 class="text-center text-danger">No Tasks</h1>
+                
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+
+
+
+ 

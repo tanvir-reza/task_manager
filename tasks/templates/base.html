@@ -1,5 +1,4 @@
 {% load static %}
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,6 +11,7 @@
     />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap');
+      
     </style>
     <title>Django Task Manager</title>
   </head>
@@ -19,20 +19,20 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-info sticky-top">
   <div class="container">
     <a class="navbar-brand h1 " href="{% url 'home' %}">Task-Manage</a>
-
-    {% comment %}  {% endcomment %}
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        
         {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link active me-2" aria-current="page" href="{% url "dashboard" %}">Dashboard</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active me-2" aria-current="page" href="{% url "create" %}">Add-Task</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active me-2" aria-current="page" href="{% url "search" %}">Search</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active me-2" aria-current="page" href="{% url "logout" %}">Logout</a>
@@ -44,22 +44,15 @@
           <li class="nav-item">
             <a class="nav-link active me-2" aria-current="page" href="{% url "signup" %}">Signup</a>
           </li>
-
         {% endif %}
-        
-        
-        
       </ul>
     </div>
   </div>
 </nav>
-
     {% block body %}
     {% endblock body %}
-
-    
   </div>
- <footer class="">
+ <footer class="mt-5">
   <p class="text-center"></p>
 </footer>
 </section>

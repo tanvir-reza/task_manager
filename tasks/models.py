@@ -19,7 +19,7 @@ class Task(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     due_date = models.DateField(auto_now=False,auto_now_add=False,blank=False)
     priority = models.CharField(max_length=6,choices=level,default='Low')
-    complete = models.BooleanField(default=False,blank=False)
+    complete = models.BooleanField(default=False)
     
     def __str__(self):
         return self.title

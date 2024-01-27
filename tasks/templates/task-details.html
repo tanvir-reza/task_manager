@@ -8,8 +8,8 @@
                     <div class="card-header">
                         <h3 class="text-center">{{task.title}}</h3>
                         <p class="text-center"><span class="text-warning ">Due:</span> <span class="font-weight-bolder text-danger" style="width: 6rem;">{{task.due_date}}</span>  </p>
-                        {% if task.complete == 'False' %}
-                            <p class="text-center"><span class="text-warning ">Status:</span> <span class="font-weight-bolder text-danger" style="width: 6rem;">InComplete</span>  </p>
+                        {% if task.complete == False %}
+                            <p class="text-center"><span class="text-warning ">Status:</span> <span class="font-weight-bolder text-danger h5" style="width: 6rem;">InComplete</span>  </p>
                         {% else %}
                             <p class="text-center"><span class="text-warning ">Status:</span> <span class="font-weight-bolder text-success" style="width: 6rem;">Complete</span>  </p>
                         {% endif %}
