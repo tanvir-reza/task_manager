@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'task'
+    'tasks'
 ]
 
 MIDDLEWARE = [
@@ -76,6 +76,17 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': config('DB_ENGINE'),
+#         'NAME': config('DB_NAME'),
+#         'USER': config('DB_USER'),
+#         'PASSWORD': config('DB_PASSWORD'),
+#         'HOST': config('DB_HOST'),  # Set to the host where your PostgreSQL server is running
+#         'PORT': config('DB_PORT'),       # Default PostgreSQL port
+#     }
+# }
 
 DATABASES = {
     'default': {
