@@ -27,12 +27,26 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         
-        <li class="nav-item">
-          <a class="nav-link active me-2" aria-current="page" href="">SOCIAL</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active me-2" aria-current="page" href="">NEWS</a>
-        </li>
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link active me-2" aria-current="page" href="{% url "dashboard" %}">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active me-2" aria-current="page" href="{% url "create" %}">Add-Task</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active me-2" aria-current="page" href="{% url "logout" %}">Logout</a>
+          </li>
+        {%else%}
+          <li class="nav-item">
+            <a class="nav-link active me-2" aria-current="page" href="{% url "login" %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active me-2" aria-current="page" href="{% url "signup" %}">Signup</a>
+          </li>
+
+        {% endif %}
+        
         
         
       </ul>

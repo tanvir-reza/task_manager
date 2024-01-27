@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">{{task.title}}</h3>
+                        <p class="text-center"><span class="text-warning ">Due:</span> <span class="font-weight-bolder text-danger" style="width: 6rem;">{{task.due_date}}</span>  </p>
+                        {% if task.complete == 'False' %}
+                            <p class="text-center"><span class="text-warning ">Status:</span> <span class="font-weight-bolder text-danger" style="width: 6rem;">InComplete</span>  </p>
+                        {% else %}
+                            <p class="text-center"><span class="text-warning ">Status:</span> <span class="font-weight-bolder text-success" style="width: 6rem;">Complete</span>  </p>
+                        {% endif %}
+                        <div class="d-flex justify-content-between">
+                            <div class="">
+                                <a href="{% url 'update' task.id %}" class="btn btn-primary btn-block">Update</a>
+                            </div>
+                            <div class="">
+                                <a href="{% url 'delete' task.id %}" class="btn btn-danger btn-block">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                    <div class="row">
+                        
+                        <div class="col-md-5 ">
+                            <img src="{{task.images.url}}" alt="image" class="img-fluid w-auto">
+                        </div> 
+                        <div class="col-md-7 border">
+                            <p class="">{{task.description|truncatechars:50}}</p>
+                        </div>
+
+                    </div>
+                    {% comment %} <div>
+                        <p class="text-center">{{task.description}}</p>
+                    </div>
+                    <div>
+                        <img src="{{task.images.url}}" alt="image" class="img-fluid w-50">
+                    </div>
+                    <div>
+                        <p class="text-center">{{task.due_date}}</p>
+                    </div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+       
+    </div>
+{% endblock body %}
+
+
+
+ 
