@@ -1,21 +1,21 @@
 
-# Your Project Name
+# Django Task Manager
 
 ## Project Overview
 
-Briefly describe your project, its purpose, and any key features.
+Briefly describe Task Manager project.
 
 ## Prerequisites
 
-- Python (version x.x)
-- Django (version x.x)
-- PostgreSQL (if applicable)
+- Python 
+- Django 
+- PostgreSQL 
 
 ## Setup
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/your-project.git
+   git clone https://github.com/tanvir-reza/task_manager.git
    cd your-project
    ```
 
@@ -71,11 +71,12 @@ Briefly describe your project, its purpose, and any key features.
 
 Get a list of tasks.
 
-**Parameters:**
-- `title` (optional): Search tasks by title.
-- `due_date` (optional): Filter tasks by due date.
-- `priority` (optional): Filter tasks by priority.
-- `completed` (optional): Filter tasks by completion status.
+**Return Data:**
+- `title` : Search tasks by title.
+- `description` : Search tasks by description.
+- `due_date` : Filter tasks by due date.
+- `priority` : Filter tasks by priority.
+- `completed` : Filter tasks by completion status.
 
 **Example Usage:**
 ```bash
@@ -88,25 +89,17 @@ Create a new task.
 
 **Parameters:**
 - `title`: Task title.
+- `description` : Search tasks by description.
 - `due_date`: Due date for the task.
 - `priority`: Priority of the task.
 - `completed`: Completion status of the task.
 
-**Example Usage:**
-```bash
-curl -X POST -H "Content-Type: application/json" -d '{"title": "New Task", "due_date": "2022-02-28", "priority": "Medium", "completed": false}' "http://localhost:8000/api/tasks/"
-```
+### `GET /api/tasks/<id>/`
 
-... (Document other API endpoints as needed)
+Get a single task Details.
+Update a single .
+Delete a single .
 
-## Contributing
+**Parameters:**
+- `id`: ID of the task.
 
-If you would like to contribute to the project, please follow the [Contributing Guidelines](CONTRIBUTING.md).
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-Remember to replace placeholders such as `your-username`, `your-project`, `your_secret_key`, `your_database_url`, and customize the API endpoints based on your actual project structure and requirements. Additionally, include any other relevant sections, such as testing, deployment, or additional configurations.
