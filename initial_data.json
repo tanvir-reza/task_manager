@@ -1,0 +1,116 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$MXveiWGVmwM4tYCox0usPN$cA+c+selnhnJE6LSrLpzbt+ioeAaMoPNyVfey6w/xk4=",
+    "last_login": "2024-01-28T09:31:53.322Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-01-27T11:23:06.284Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$NBrLfzXUGeCz5b3fOTdrL8$WJh56RRy+wvwXvOKAeEtxlhgYOJYuTth7kvtWRjXr50=",
+    "last_login": "2024-01-28T09:27:32.799Z",
+    "is_superuser": false,
+    "username": "user1",
+    "first_name": "",
+    "last_name": "",
+    "email": "user1@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-01-28T09:26:58.327Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$jb9UrFXiYHlDBLwZCO9Tcr$tCvdV6CA4jbwepXKrFNyvC8IBOqC9K1G4UEY6uOkX9Y=",
+    "last_login": "2024-01-28T09:29:37.882Z",
+    "is_superuser": false,
+    "username": "user2",
+    "first_name": "",
+    "last_name": "",
+    "email": "user2@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-01-28T09:27:24.073Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$FthNiGDoH0abvGcX2ptBOZ$v3VE1CbQWd5mn/Um3jx9bKGEQVQpxVgF/5zWBvWvXRU=",
+    "last_login": "2024-01-28T09:30:24.543Z",
+    "is_superuser": false,
+    "username": "user3",
+    "first_name": "",
+    "last_name": "",
+    "email": "user3@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-01-28T09:29:32.659Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 12,
+  "fields": {
+    "user": 4,
+    "title": "Task User 1",
+    "description": "Desscription of Task User 1",
+    "images": "images/data_science_UOc5UgJ.jpg",
+    "created": "2024-01-28T09:28:48.267Z",
+    "due_date": "2024-01-31",
+    "priority": "High",
+    "complete": false
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 13,
+  "fields": {
+    "user": 5,
+    "title": "Task User 2",
+    "description": "Description of Task User 2",
+    "images": "images/django_vs_flask-1_s8Bm1ym.jpeg",
+    "created": "2024-01-28T09:30:13.923Z",
+    "due_date": "2024-01-31",
+    "priority": "Medium",
+    "complete": false
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 14,
+  "fields": {
+    "user": 6,
+    "title": "Task User 3",
+    "description": "Description of Task User 3",
+    "images": "images/data_science_5d4lmrY.jpg",
+    "created": "2024-01-28T09:31:06.273Z",
+    "due_date": "2024-02-02",
+    "priority": "Low",
+    "complete": false
+  }
+}
+]
